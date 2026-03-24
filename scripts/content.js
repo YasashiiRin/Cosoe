@@ -50,6 +50,29 @@ document.addEventListener("keydown", (e) => {
 });
 // end
 
+//blur
+///short cut tongle sidebar
+const style1 = document.createElement("style");
+style1.innerHTML = `
+.blur-me {
+  filter: blur(5px) !important;
+}
+`;
+document.head.appendChild(style1);
+
+let isBlur = false;
+
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.key.toLowerCase() === "j") {
+    e.preventDefault();
+
+    isBlur = !isBlur;
+
+    document.getElementById("messageViewContainer").classList.toggle("blur-me", isBlur);
+  }
+});
+// end
+
 function hideInsideElements() {
   document.querySelectorAll(".rich-input.empty").forEach((el) => {
     el.setAttribute("placeholder", "$")
