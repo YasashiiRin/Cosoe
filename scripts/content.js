@@ -72,6 +72,39 @@ document.addEventListener("keydown", (e) => {
   }
 });
 // end
+// menu
+///short cut tongle menu type mess
+const style2 = document.createElement("style");
+style2.innerHTML = `
+.hide-me {
+  display: none !important;
+}
+`;
+document.head.appendChild(style2);
+let ishideMenu = true;
+
+//Load Dom
+const observer1 = new MutationObserver(() => {
+  const menu = document.querySelector(".flx.flx-al-c.tab-main.w100.rel.small.border-bottom");
+
+  if (menu) {
+    menu.classList.add("hide-me");
+    observer1.disconnect();
+  }
+});
+
+observer1.observe(document.body, { childList: true, subtree: true });
+
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.key.toLowerCase() === "m") {
+    e.preventDefault();
+
+    ishideMenu = !ishideMenu;
+
+     document.querySelector(".flx.flx-al-c.tab-main.w100.rel.small.border-bottom").classList.toggle("hide-me", ishideMenu);
+  }
+});
+// end
 
 function hideInsideElements() {
   document.querySelectorAll(".rich-input.empty").forEach((el) => {
@@ -98,13 +131,6 @@ function hideOutsideElements() {
 
   const el2 = document.getElementById("contact-search")
   if (el2) el2.style.display = "none"
-
-  const el3 = document.querySelectorAll(".flx.flx-al-c.tab-main.w100.rel.small.border-bottom")
-  if (el3) {
-    el3.forEach((el) => {
-      el.style.display = "none"
-    })
-  }
 
   const el4 = document.querySelectorAll(".conversation-list__banner__full-mode")
   if (el4) {
