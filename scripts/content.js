@@ -55,7 +55,7 @@ document.addEventListener("keydown", (e) => {
 const style1 = document.createElement("style");
 style1.innerHTML = `
 .blur-me {
-  filter: blur(5px) !important;
+  filter: blur(3px) !important;
 }
 `;
 document.head.appendChild(style1);
