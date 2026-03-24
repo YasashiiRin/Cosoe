@@ -1,0 +1,40 @@
+
+body {
+    background-color: #000 !important;
+}
+
+#app,
+#root,
+.flx,
+.flx-col,
+.flx-cell,
+.nav__tabs,
+#sidebarNav,
+#main-tab,
+#header,
+.chat-box-bar,
+.list-chat-box-banner {
+    background-color: #000 !important;
+}
+
+
+* {
+    color: #e0e0e0 !important;
+}
+input, textarea {
+    background-color: #111 !important;
+    color: #fff !important;
+}
+
+body, div, span, p, h1, h2, h3, h4, h5, h6 {
+    color: #00ff88 !important;
+}
+i, svg {
+    color: inherit !important;
+}
+
+input, textarea {
+    color: #00ff88 !important;
+    caret-color: #00ff88 !important;
+}
+
