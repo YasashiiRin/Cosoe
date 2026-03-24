@@ -82,6 +82,7 @@ style2.innerHTML = `
 `;
 document.head.appendChild(style2);
 let ishideMenu = true;
+let ishideBoxBar = true;
 
 //Load Dom
 const observer1 = new MutationObserver(() => {
@@ -92,8 +93,18 @@ const observer1 = new MutationObserver(() => {
     observer1.disconnect();
   }
 });
+//Load Dom
+const observer2 = new MutationObserver(() => {
+  const chatBoxBar = document.getElementById("chat-box-bar-id");
+
+  if (chatBoxBar) {
+    chatBoxBar.classList.add("hide-me");
+    observer2.disconnect();
+  }
+});
 
 observer1.observe(document.body, { childList: true, subtree: true });
+observer2.observe(document.body, { childList: true, subtree: true });
 
 document.addEventListener("keydown", (e) => {
   if (e.ctrlKey && e.key.toLowerCase() === "m") {
@@ -104,14 +115,21 @@ document.addEventListener("keydown", (e) => {
      document.querySelector(".flx.flx-al-c.tab-main.w100.rel.small.border-bottom").classList.toggle("hide-me", ishideMenu);
   }
 });
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.key.toLowerCase() === "f") {
+    e.preventDefault();
+    ishideBoxBar = !ishideBoxBar;
+    document.getElementById("chat-box-bar-id").classList.toggle("hide-me", ishideBoxBar);
+  }
+});
 // end
 
 function hideInsideElements() {
   document.querySelectorAll(".rich-input.empty").forEach((el) => {
     el.setAttribute("placeholder", "$")
   })
-  const el1 = document.getElementById("chat-box-bar-id")
-  if (el1) el1.style.display = "none"
+  // const el1 = document.getElementById("chat-box-bar-id")
+  // if (el1) el1.style.display = "none"
 
   const el2 = document.getElementById("header")
   if (el2) el2.style.display = "none"

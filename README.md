@@ -1,3 +1,7 @@
-# Inferno_Image_Translator
-translate text in image to any language on any website with our brower extention or translate your own image locally
 # Cosoe
+Console chat zalo
+# Shortcut
+ctrl + y => hiden/show slide left
+ctrl + j => blur container chat
+ctrl + m => show/hide menu type friend
+ctrl + f => show box bar ( send image, send file, ....)
