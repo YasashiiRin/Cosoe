@@ -5,3 +5,4 @@ Console chat zalo
 #### ctrl + j => blur container chat
 #### ctrl + m => show/hide menu type friend
 #### ctrl + f => show box bar ( send image, send file, ....)
+#### ctrl + k => hide/show box search
