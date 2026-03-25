@@ -103,8 +103,19 @@ const observer2 = new MutationObserver(() => {
   }
 });
 
+//Load Dom
+const observer3 = new MutationObserver(() => {
+  const search = document.getElementById("contact-search")
+
+  if (search) {
+    search.classList.add("hide-me");
+    observer3.disconnect();
+  }
+});
+
 observer1.observe(document.body, { childList: true, subtree: true });
 observer2.observe(document.body, { childList: true, subtree: true });
+observer3.observe(document.body, { childList: true, subtree: true });
 
 document.addEventListener("keydown", (e) => {
   if (e.ctrlKey && e.key.toLowerCase() === "m") {
@@ -115,11 +126,22 @@ document.addEventListener("keydown", (e) => {
      document.querySelector(".flx.flx-al-c.tab-main.w100.rel.small.border-bottom").classList.toggle("hide-me", ishideMenu);
   }
 });
+
+//menu file
 document.addEventListener("keydown", (e) => {
   if (e.ctrlKey && e.key.toLowerCase() === "f") {
     e.preventDefault();
     ishideBoxBar = !ishideBoxBar;
     document.getElementById("chat-box-bar-id").classList.toggle("hide-me", ishideBoxBar);
+  }
+});
+
+// menu search
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.key.toLowerCase() === "k") {
+    e.preventDefault();
+    ishideBoxBar = !ishideBoxBar;
+    document.getElementById("contact-search").classList.toggle("hide-me", ishideBoxBar);
   }
 });
 // end
@@ -147,8 +169,8 @@ function hideOutsideElements() {
   const el = document.getElementById("main-tab")
   if (el) el.style.display = "none"
 
-  const el2 = document.getElementById("contact-search")
-  if (el2) el2.style.display = "none"
+  // const el2 = document.getElementById("contact-search")
+  // if (el2) el2.style.display = "none"
 
   const el4 = document.querySelectorAll(".conversation-list__banner__full-mode")
   if (el4) {
